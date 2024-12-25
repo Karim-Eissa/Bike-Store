@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Bookings</title>
+    <link rel="stylesheet" href="../bookings.css">
+</head>
+<body>
+
+    <header>
+        <h1>All Bookings</h1>
+    </header>
+
+    <%- include('partials/nav') %>
+
+    <main class="container">
+        <div class="bookings-list">
+            <% if (bookings.length > 0) { %>
+                <% bookings.forEach(booking => { %>
+                    <div class="booking-card">
+                        <h3><%= booking.make %> <%= booking.model %></h3>
+                        <p><strong>Client:</strong> <%= booking.first_name %> <%= booking.last_name %></p>
+                        <p><strong>Booking Dates:</strong> <%= booking.start_date %> to <%= booking.end_date %></p>
+                        <p><strong>Status:</strong> <%= booking.status %></p>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No bookings found.</p>
+            <% } %>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

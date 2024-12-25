@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= bike.make %> <%= bike.model %> - Bike Details</title>
+    <link rel="stylesheet" href="../bikeDetails.css">
+</head>
+<body>
+    <header>
+        <h1><%= bike.make %> <%= bike.model %> - Bike Details</h1>
+    </header>
+    <%- include('partials/nav') %>
+
+    <main class="bike-details-container">
+        <div class="bike-detail">
+            <img src="<%= bike.image_url %>" alt="<%= bike.make %> <%= bike.model %>" class="bike-image">
+            <div class="bike-info">
+                <h1><%= bike.make %> <%= bike.model %></h1>
+                <p><strong>Year:</strong> <%= bike.year %></p>
+                <p><strong>Price:</strong> $<%= bike.price %></p>
+                <p><strong>Description:</strong> <%= bike.description %></p>
+                <p><strong>Brand:</strong> <%= bike.brand_name %></p>
+                <p><strong>Category:</strong> <%= bike.category_name %></p>
+                
+                <!-- Book button that links to a booking page -->
+                <a href="/book/<%= bike.id %>" class="book-btn">Book Now</a>
+
+                <!-- Delete button with inline JavaScript confirmation -->
+                <button class="delete-btn" 
+                        onclick="if (confirm('Are you sure you want to delete this bike?')) { window.location.href = '/delete-bike/<%= bike.id %>' }">
+                    Delete Bike
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

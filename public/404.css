@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    text-align: center;
+  }
+  
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 100px;
+    color: #ff6b6b;
+  }
+  
+  p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .home-link {
+    font-size: 16px;
+    text-decoration: none;
+    color: #007bff;
+    margin-top: 20px;
+  }
+  
+  .home-link:hover {
+    text-decoration: underline;
+  }
+  

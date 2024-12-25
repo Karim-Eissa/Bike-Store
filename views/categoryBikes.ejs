@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikes</title>
+    <link rel="stylesheet" href="../categoryBikes.css">
+</head>
+<body>
+    <header>
+        <h1>Bikes</h1>
+    </header>
+    <%- include('partials/nav') %>
+
+    <main class="container">
+        
+        <% if (bikes.length > 0) { %>
+            <div class="bikes-grid">
+                <% bikes.forEach(bike => { %>
+                    <div class="bike-card">
+                        <a href="/bike/<%= bike.id %>">
+                            <img src="<%= bike.image_url %>" alt="<%= bike.make %> <%= bike.model %>">
+                            <h2><%= bike.make %> <%= bike.model %></h2>
+                            <p><strong>Year:</strong> <%= bike.year %></p>
+                            <p><strong>Price:</strong> $<%= bike.price %></p>
+                            <p><%= bike.description %></p>
+                            <p><strong>Brand:</strong> <%= bike.brand_name %></p>
+                        </a>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No bikes are currently available in this category.</p>
+        <% } %>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>

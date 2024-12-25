@@ -1,0 +1,47 @@
+<!-- views/bookBike.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../book.css">
+
+    <title>Book</title>
+</head>
+<body>
+    <header>
+        <h1>Book <%= bike.make %> <%= bike.model %> </h1>
+    </header>
+    <%- include('partials/nav') %>
+    <main class="container">
+        <!-- In your booking form (e.g., booking.ejs) -->
+
+<form action="/book/<%= bike.id %>" method="POST">
+    <div class="form-group">
+        <label for="client">Select Client</label>
+        <select name="client_id" id="client" required>
+            <option value="">-- Select Client --</option>
+            <% clients.forEach(client => { %>
+                <option value="<%= client.id %>"><%= client.first_name %> <%= client.last_name %></option>
+            <% }); %>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="start_date">Start Date</label>
+        <input type="date" id="start_date" name="start_date" required>
+    </div>
+
+    <div class="form-group">
+        <label for="end_date">End Date</label>
+        <input type="date" id="end_date" name="end_date" required>
+    </div>
+
+    <button type="submit">Book Now</button>
+</form>
+
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+</html>
